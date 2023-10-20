@@ -1,0 +1,35 @@
+package com.example.calculadora;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class MainActivityTest {
+
+    @Test
+    public void evaluarExpresion_SumaCorrecta() {
+        MainActivity mainActivity = new MainActivity();
+        String resultado = mainActivity.evaluarExpresion("3+4");
+        assertEquals("7.0", resultado);
+    }
+
+    @Test
+    public void evaluarExpresion_DivisionPorCero() {
+        MainActivity mainActivity = new MainActivity();
+        String resultado = mainActivity.evaluarExpresion("5/0");
+        assertEquals("Error", resultado);
+    }
+
+    @Test
+    public void evaluarExpresion_PotenciacionCorrecta() {
+        MainActivity mainActivity = new MainActivity();
+        String resultado = mainActivity.evaluarExpresion("2^3");
+        assertEquals("8.0", resultado);
+    }
+
+    @Test
+    public void evaluarExpresion_NumeroNegativo() {
+        MainActivity mainActivity = new MainActivity();
+        String resultado = mainActivity.evaluarExpresion("-5+3");
+        assertEquals("-2.0", resultado);
+    }
+
+}
